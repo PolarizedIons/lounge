@@ -3,10 +3,52 @@
 	<i class="hostmask">({{whois.user}}@{{whois.host}})</i>:
 	<b>{{whois.real_name}}</b>
 </div>
+{{#if whois.actuallhost}}
+<div>
+	{{> ../user_name nick=whois.nick}}
+	is connecting from {{whois.actuallhost}}
+</div>
+{{/if}}
 {{#if whois.account}}
 <div>
 	{{> ../user_name nick=whois.nick}}
 	is logged in as <b>{{whois.account}}</b>
+</div>
+{{/if}}
+{{#if whois.modes}}
+<div>
+	{{> ../user_name nick=whois.nick}}
+	is using modes <i>{{whois.modes}}</i>
+</div>
+{{/if}}
+{{#if whois.operator}}
+<div>
+	{{> ../user_name nick=whois.nick}}
+	{{whois.operator}}
+</div>
+{{/if}}
+{{#if whois.special}}
+<div>
+	{{> ../user_name nick=whois.nick}}
+	{{whois.special}}
+</div>
+{{/if}}
+{{#if whois.helpop}}
+<div>
+	{{> ../user_name nick=whois.nick}}
+	{{whois.helpop}}
+</div>
+{{/if}}
+{{#if whois.bot}}
+<div>
+	{{> ../user_name nick=whois.nick}}
+	{{whois.bot}}
+</div>
+{{/if}}
+{{#if whois.logon}}
+<div>
+	{{> ../user_name nick=whois.nick}}
+	connected on {{localetime whois.logonTime}}
 </div>
 {{/if}}
 {{#if whois.channels}}

@@ -29,6 +29,8 @@ module.exports = function(irc, network) {
 		} else {
 			// Absolute datetime in milliseconds since nick is idle
 			data.idleTime = Date.now() - data.idle * 1000;
+			// Convert time to milliseconds
+			data.logonTime = data.logon * 1000;
 
 			msg = new Msg({
 				type: Msg.Type.WHOIS,
